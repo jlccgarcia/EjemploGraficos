@@ -11,6 +11,8 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.view.View;
 
@@ -23,7 +25,8 @@ public class MainActivity extends Activity {
     }
 
     public class EjemploView extends View {
-        private Drawable miImagen1, miImagen2, miImagen;
+        //private Drawable miImagen1, miImagen2, miImagen;
+        private ShapeDrawable miImagen;
 
         public EjemploView (Context context) {
 
@@ -39,10 +42,14 @@ public class MainActivity extends Activity {
             //VectorDrawable
             //miImagen=ContextCompat.getDrawable(context,R.drawable.estrella);
             //miImagen=ContextCompat.getDrawable(context,R.drawable.ic_android_black_24dp);
-            miImagen=ContextCompat.getDrawable(context,R.drawable.ic_leon);
-            miImagen.setBounds(200,300,400, 500);
+            //miImagen=ContextCompat.getDrawable(context,R.drawable.ic_leon);
+            //miImagen.setBounds(200,300,400, 500);
             //miImagen.setBounds(30,30,1000, 1000);
 
+            //ShapeDrawable
+            miImagen  = new ShapeDrawable(new OvalShape());
+            miImagen.getPaint().setColor(0xff0000ff);
+            miImagen.setBounds(10, 10, 310, 60);
         }
 
         @Override
@@ -93,7 +100,7 @@ public class MainActivity extends Activity {
            // miImagen1.draw(canvas);
            // miImagen2.draw(canvas);
 
-            //Dibujo del VectorDrawable
+            //Dibujo del VectorDrawable/ShapeDrawable
             miImagen.draw(canvas);
         }
     }
